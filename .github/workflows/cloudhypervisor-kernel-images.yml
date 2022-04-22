@@ -1,18 +1,18 @@
-name: Build and release kernel images
+name: Build and release kernel images for Cloud Hypervisor
 
 on:
   pull_request:
     paths:
-      - 'flintlock/kernel/**'
+      - 'flintlock/kernel/cloudhypervisor/**'
     branches: [main]
   push:
     paths:
-      - 'flintlock/kernel/**'
+      - 'flintlock/kernel/cloudhypervisor/**'
     branches: [main]
 
 defaults:
   run:
-    working-directory: flintlock/kernel
+    working-directory: flintlock/kernel/cloudhypervisor
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ 4.19.215, 5.10.77 ]
+        version: [ 5.12, 5.13 ]
     steps:
       - uses: actions/checkout@v2
       - name: Build kernel
@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ 4.19.215, 5.10.77 ]
+        version: [ 5.12, 5.13 ]
     env:
       KERNEL_VERSIONS: ${{ matrix.version }}
     steps:
