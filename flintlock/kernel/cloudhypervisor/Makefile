@@ -4,7 +4,7 @@ REGISTRY?=ghcr.io/weaveworks
 IMAGE_NAME?=$(REGISTRY)/flintlock-kernel-cloudhypervisor
 BUILDER_IMAGE_NAME?=flintlock-kernel-builder-ch
 CH_VERSION ?= 23.0
-KERNEL_VERSIONS ?= 5.12 5.13
+KERNEL_VERSIONS ?= 5.12
 
 all: build
 

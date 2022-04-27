@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
         gnupg2 \
         software-properties-common \
         libseccomp2 \
-        jq
+        jq \
+        nano
 
 #### Let iptables see bridged traffic ###
 RUN echo "overlay \n\
