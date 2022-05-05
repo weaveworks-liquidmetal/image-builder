@@ -18,8 +18,8 @@ WORKDIR ${LINUX_DIR}
 
 COPY configs/linux-x86_64.config .config
 
-RUN make LOCALVERSION= bzImage -j `nproc`
-RUN make LOCALVERSION= modules
+RUN make LOCALVERSION= olddefconfig
+RUN make LOCALVERSION= -j `nproc` all
 RUN make LOCALVERSION= modules_install
 
 RUN cp arch/x86/boot/compressed/vmlinux.bin /boot/vmlinux.bin && \
